@@ -17,7 +17,7 @@ namespace GraphicsInterfaceOOP
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Run_Button_Click(object sender, EventArgs e)
         {
             double a, b, c;
             a = Convert.ToDouble(textA.Text);
@@ -39,7 +39,6 @@ namespace GraphicsInterfaceOOP
             if (triangle.ExistTriange) { listView1.Items[5].SubItems.Add("Exists"); }
             else listView1.Items[5].SubItems.Add("Doesn't exist");
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -59,5 +58,7 @@ namespace GraphicsInterfaceOOP
         {
 
         }
+
+        
     }
 }

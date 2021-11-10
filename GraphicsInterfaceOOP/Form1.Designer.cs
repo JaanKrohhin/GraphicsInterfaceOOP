@@ -54,7 +54,7 @@
             this.Run_Button.TabIndex = 0;
             this.Run_Button.Text = "Launch";
             this.Run_Button.UseVisualStyleBackColor = false;
-            this.Run_Button.Click += new System.EventHandler(this.button1_Click);
+            this.Run_Button.Click += new System.EventHandler(this.Run_Button_Click);
             // 
             // pictureBox1
             // 
