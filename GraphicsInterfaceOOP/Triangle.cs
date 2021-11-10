@@ -11,12 +11,33 @@ namespace GraphicsInterfaceOOP
         public double a;
         public double b;
         public double c;
+        public double h;
+        public double alpha;
+
         public Triangle(double A, double B, double C)
         {
             a = A;
             b = B;
             c = C;
         }
+        public Triangle(double A, double H)
+        {
+            a = A;
+            h = H;
+        }
+        public Triangle(double A, double B, int An)
+        {
+            a = A;
+            b = B;
+            alpha = An;
+        }
+        public Triangle()
+        {
+            a = 3;
+            b = 4;
+            c = 5;
+        }
+
         public string outputA()
         {
             return Convert.ToString(a);
@@ -35,11 +56,16 @@ namespace GraphicsInterfaceOOP
         }
         public double Surface()
         {
-            double s = 0;
-            double p = 0;
-            p = (a + b + c)/2;
-            s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
-            return s;
+            double p = Perimeter()/2;
+            return  Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
+        }
+        public double Surface_H()
+        {
+            return (a * h) / 2;
+        }
+        public double Surface_Sin()
+        {
+            return (a * b * Math.Sin(alpha)) / 2;
         }
         public double GetSetA
         {
@@ -61,8 +87,16 @@ namespace GraphicsInterfaceOOP
         {
             get
             {
-                if ((a > b + c) && (b > a + c) && (c > a + b))  return false;
-                else return true;
+                if ((a < b + c) && (b < a + c) && (c < a + b))  return true;
+                else return false;
+            }
+        }
+        public bool EqualTriangle
+        {
+            get
+            {
+                if (a == b || c == a || c == b) return true;
+                else return false;
             }
         }
     }
