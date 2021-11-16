@@ -12,7 +12,7 @@ namespace GraphicsInterfaceOOP
         public double b;
         public double c;
         public double h;
-        public double alpha;
+        public int alpha;
 
         public Triangle(double A, double B, double C)
         {
@@ -38,17 +38,9 @@ namespace GraphicsInterfaceOOP
             c = 5;
         }
 
-        public string outputA()
+        public string output(double a)
         {
             return Convert.ToString(a);
-        }
-        public string outputB()
-        {
-            return Convert.ToString(b);
-        }
-        public string outputC()
-        {
-            return Convert.ToString(c);
         }
         public double Perimeter()
         {
@@ -66,6 +58,10 @@ namespace GraphicsInterfaceOOP
         public double Surface_Sin()
         {
             return (a * b * Math.Sin(alpha)) / 2;
+        }
+        public double Pifa(double a, double b)
+        {
+            return Math.Round(Math.Sqrt(a*a+b*b));
         }
         public double GetSetA
         {
@@ -95,7 +91,7 @@ namespace GraphicsInterfaceOOP
         {
             get
             {
-                if (a == b || c == a || c == b) return true;
+                if ((a == b || c == a || c == b) && a + b + c != 0) return true;
                 else return false;
             }
         }
