@@ -12,7 +12,7 @@ namespace GraphicsInterfaceOOP
         public double b;
         public double c;
         public double h;
-        public int alpha;
+        public int beta;
 
         public Triangle(double A, double B, double C)
         {
@@ -29,7 +29,7 @@ namespace GraphicsInterfaceOOP
         {
             a = A;
             b = B;
-            alpha = An;
+            beta = An;
         }
         public Triangle()
         {
@@ -57,7 +57,7 @@ namespace GraphicsInterfaceOOP
         }
         public double Surface_Sin()
         {
-            return (a * b * Math.Sin(alpha)) / 2;
+            return (a * b * Math.Sin(beta)) / 2;
         }
         public double Pifa(double a, double b)
         {
@@ -83,7 +83,7 @@ namespace GraphicsInterfaceOOP
         {
             get
             {
-                if ((a < b + c) && (b < a + c) && (c < a + b))  return true;
+                if (a < (b + c) && b < (a + c) && c < (a + b))  return true;
                 else return false;
             }
         }

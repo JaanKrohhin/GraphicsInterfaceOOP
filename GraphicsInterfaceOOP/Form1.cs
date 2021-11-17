@@ -19,29 +19,23 @@ namespace GraphicsInterfaceOOP
 
         private void Run_Button_Click(object sender, EventArgs e)
         {
+            listView1.Items.Clear();
             //textA.Text = textB.Text = textC.Text = textH.Text = "0";
-            Triangle triangle;
-            double a, b, c, h ;
-            int alp;
-            if (textB.Text!="")
+            double a, b, c;
+            if (textB.Text=="" || textA.Text=="" || textC.Text=="")
             {
-                a = Convert.ToDouble(textA.Text);
-                b = Convert.ToDouble(textB.Text);
-                c = Convert.ToDouble(textC.Text);
-                triangle = new Triangle(a, b, c);
+                a = b = c = 0;
             }
             else
             {
-                a = Convert.ToDouble(textA.Text);
-                h = Convert.ToDouble(textH.Text);
-                triangle = new Triangle(a, h);
-                triangle.b = triangle.Pifa(a / 2, h);
-                triangle.c = triangle.Pifa(a, triangle.b);
+                a = Convert.ToDouble(textA.Text); 
+                b = Convert.ToDouble(textB.Text);
+                c = Convert.ToDouble(textC.Text);
             }
+            Triangle triangle = new Triangle(a,b,c);
             listView1.Items.Add("Side A");
             listView1.Items.Add("Side B");
             listView1.Items.Add("Side C");
-            listView1.Items.Add("Height");
             listView1.Items.Add("Perimeter");
             listView1.Items.Add("Surface Area");
             listView1.Items.Add("Existense?");
@@ -49,17 +43,19 @@ namespace GraphicsInterfaceOOP
             listView1.Items[0].SubItems.Add(triangle.output(triangle.a));
             listView1.Items[1].SubItems.Add(triangle.output(triangle.b));
             listView1.Items[2].SubItems.Add(triangle.output(triangle.c));
-            if (triangle.h==0)
-            {
-                listView1.Items[3].SubItems.Add("Null");
-            }
-            else {listView1.Items[3].SubItems.Add(triangle.output(triangle.h));}
-            listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Perimeter()));
-            listView1.Items[5].SubItems.Add(Convert.ToString(triangle.Surface()));
+            listView1.Items[3].SubItems.Add(Convert.ToString(triangle.Perimeter()));
+            listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Surface()));
             if (triangle.ExistTriange) { listView1.Items[6].SubItems.Add("Exists"); }
-            else listView1.Items[6].SubItems.Add("Doesn't exist");
-            if (triangle.EqualTriangle){ listView1.Items[7].SubItems.Add("Yes"); }
-            else listView1.Items[7].SubItems.Add("No");
+            else listView1.Items[5].SubItems.Add("Doesn't exist");
+            if (triangle.EqualTriangle){ listView1.Items[6].SubItems.Add("Yes"); }
+            else listView1.Items[6].SubItems.Add("No");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.Show();
+            this.Hide();
         }
     }
 }
